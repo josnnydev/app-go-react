@@ -5,7 +5,7 @@
     <div>
       <h1>Hola</h1>
      <button onClick={async()=>{
-      const response = await fetch("http://127.0.0.1:3000/users")
+      const response = await fetch("/users")
       const data = await response.json()
       console.log(data);
       
