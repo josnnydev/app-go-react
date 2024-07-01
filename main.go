@@ -1,12 +1,18 @@
 package main
 
 import (
+	"os"
+
 	"github.com/gofiber/fiber/v3"
 	"github.com/gofiber/fiber/v3/middleware/cors"
 	"github.com/gofiber/fiber/v3/middleware/static"
 )
 
 func main()  {
+	port := os.Getenv("PORT")
+	if port == ""{
+		port = "3000"
+	}
 	app := fiber.New()
 
 	app.Use(cors.New())
@@ -20,7 +26,7 @@ func main()  {
 		})
 	})
 
-	app.Listen(":3000")
+	app.Listen(":" + port)
 
 	
 }
